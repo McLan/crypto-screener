@@ -10,12 +10,16 @@ function App() {
   const columns = useMemo(
     () => [
       {
-        Header: "Currency",
-        accessor: "show.name"
+        Header: "Name",
+        accessor: "name"
       },
       {
-        Header: "Genre(s)",
-        accessor: "show.genres",
+        Header: "Symbol",
+        accessor: "symbol"
+      },
+      {
+        Header: "Price",
+        accessor: "quote.USD.price",
       },
       {
         Header: "Status",
@@ -29,11 +33,16 @@ function App() {
 
   useEffect(() => {
     (async () => {
-      //const result1 = myJson;
-      //setData(myJson.data)
-      console.log(myJson.data)
+      var test = myJson.data
+      console.log(test)
+      var myTab = [];
+      for (var i in test) {
+        myTab.push(test[i]);
+      }
+      console.log(myTab);
       const result = await axios("https://api.tvmaze.com/search/shows?q=snow");
-      setData(result.data);
+      //setData(result.data);
+      setData(myTab);
       console.log(result.data);
     })();
   }, []);
