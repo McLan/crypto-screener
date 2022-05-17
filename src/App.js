@@ -19,7 +19,8 @@ const cryptoArray = {
   ANKR:{owned: 1960, entryPrice: 0.153},
   MANA:{owned: 66, entryPrice: 4.5454},
   AXS:{owned: 2.1715, entryPrice: 138.25},
-  DOT:{owned: 30, entryPrice: 10},};
+  DOT:{owned: 30, entryPrice: 10},
+  ITHEUM:{owned: 3867, entryPrice: 0.04}};
 
 function App() {
   const columns = useMemo(
