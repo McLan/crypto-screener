@@ -1,5 +1,4 @@
 import React, { useMemo, useState, useEffect } from "react";
-//import axios from "axios";
 import myJson from './data.json';
 import Table from "./Table";
 import "./App.css";
@@ -75,8 +74,6 @@ function App() {
         myTab.push(test[i]);
       }
       setData(myTab);
-      //const result = await axios("https://api.tvmaze.com/search/shows?q=snow");
-      //setData(result.data);
     })();
   }, []);
 
