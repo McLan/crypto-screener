@@ -3,6 +3,8 @@ import React, { useMemo, useState, useEffect } from "react";
 import myJson from './data.json';
 import Table from "./Table";
 import "./App.css";
+import { Doughnut } from 'react-chartjs-2';
+import 'chart.js/auto';
 
 const cryptoArray = {
   ZEN:{owned: 84, entryPrice: 16},
@@ -20,6 +22,29 @@ const cryptoArray = {
   AXS:{owned: 2.1715, entryPrice: 138.25},
   DOT:{owned: 30, entryPrice: 10},
   ITHEUM:{owned: 3867, entryPrice: 0.04}};
+
+const data2 = {
+  labels: ['Mon','Tue','Wed','Thurs','Fri'],
+  datasets: [{
+      label: 'Attendance for Week 1',
+      data: [25,24,25,25,3],
+      borderColor: ['rgba(255,206,86,0.2)'],
+      backgroundColor: ['rgba(232,99,132,1)',
+      'rgba(232,211,6,1)',
+      'rgba(54,162,235,1)',
+      'rgba(255,159,64,1)',
+      'rgba(153,102,255,1)' ],
+      pointBackgroundColor: 'rgba(255,206,86,0.2)',
+    }]
+}
+const options = {
+  plugins: {
+    title: {display: true,text: 'Doughnut Chart',color:'blue',
+      font: {size:34},
+      padding:{top:30,bottom:30},
+      responsive:true,
+      animation:{animateScale: true,}}}
+}
 
 function App() {
   const columns = useMemo(
@@ -58,8 +83,8 @@ function App() {
   return (
     <div className="App">
       <Table columns={columns} data={data} />
+      <Doughnut data={data2} options={options}/>
     </div>
-    
   );
 }
 
