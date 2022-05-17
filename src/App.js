@@ -1,7 +1,6 @@
 import React, { useMemo, useState, useEffect } from "react";
 //import axios from "axios";
 import myJson from './data.json';
-
 import Table from "./Table";
 import "./App.css";
 
@@ -60,6 +59,7 @@ function App() {
     <div className="App">
       <Table columns={columns} data={data} />
     </div>
+    
   );
 }
 
