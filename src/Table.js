@@ -4,30 +4,14 @@ import { useTable, useFilters, useSortBy } from "react-table";
 export default function Table({ columns, data }) {
   const [filterInput, setFilterInput] = useState("");
   // Use the state and functions returned from useTable to build your UI
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    rows,
-    prepareRow,
-    setFilter
-  } = useTable(
-    {
-      columns,
-      data
-    },
-    useFilters,
-    useSortBy
-  );
+  const {getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, setFilter} = useTable( { columns, data }, useFilters, useSortBy);
 
   const handleFilterChange = e => {
     const value = e.target.value || undefined;
-    //setFilter("show.name", value);
     setFilter("name", value);
     setFilterInput(value);
   };
 
-  // Render the UI for your table
   return (
     <>
       <input
