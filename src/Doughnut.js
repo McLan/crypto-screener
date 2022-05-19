@@ -1,13 +1,15 @@
 import { Doughnut } from 'react-chartjs-2';
 import React from 'react';
 
-function DoughnutChartGraph() {
+function DoughnutChartGraph(cryptosList, values) {
     const data = {
-    labels: ['Mon','Tue','Wed','Thurs','Fri'],
+    //labels: ['Mon','Tue','Wed','Thurs','Fri'],
+    labels: cryptosList,
     datasets: [
         {
             label: 'Attendance for Week 1',
-            data: [25,24,25,25,23],
+            //data: [25,24,25,25,23],
+            data: values,
             borderColor: ['rgba(175,71,156,0.2)'],
             borderWidth:5,
             backgroundColor: ['rgba(232,99,132,1)',

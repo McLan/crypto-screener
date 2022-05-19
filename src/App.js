@@ -37,6 +37,24 @@ function App() {
     []
   );
   const [data, setData] = useState([]);
+  const myCryptosList = [];
+  const myValues = [];
+  var test2 = myJson.data
+  for (var i in test2) {
+    var currentCrypto = test2[i].symbol;
+    myCryptosList.push(currentCrypto);
+    myValues.push(test2[i].quote.USD.price * cryptoArray[currentCrypto].owned);
+  }
+  //console.log(myCryptosList);
+  //console.log(myValues);
+  const myCryptosList2 = [];
+  const myValues2 = [];
+  for (var j =0; j<5; j++) {
+    myValues2.push(myValues[j].toFixed(2));
+    myCryptosList2.push(myCryptosList[j]);
+  }
+  console.log(myCryptosList2);
+  console.log(myValues2);
   useEffect(() => {
     var test = myJson.data
       var myTab = [];
@@ -45,17 +63,18 @@ function App() {
         test[i]["owned"] = cryptoArray[currentCrypto].owned;
         test[i]["entryPrice"] = cryptoArray[currentCrypto].entryPrice;
         test[i]["value"] = test[i].quote.USD.price * cryptoArray[currentCrypto].owned;
-        //cryptos.push(i);
-        //values.push(test[i]["value"].toFixed(2));
+        myCryptosList.push(test[i].symbol);
+        myValues.push(test[i]["value"].toFixed(2));
         myTab.push(test[i]);
       }
       setData(myTab);
   }, []);
+  
 
   return (
     <div className="App">
       <Table columns={columns} data={data} />
-      <DoughnutChart />
+      <DoughnutChart cryptosList={myCryptosList2} values={myValues2} /> 
     </div>
   );
 }
