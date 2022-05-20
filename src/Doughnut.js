@@ -1,7 +1,7 @@
 import { Doughnut } from 'react-chartjs-2';
 import React from 'react';
 
-function DoughnutChartGraph(cryptosList, values) {
+function DoughnutChartGraph({cryptosList, values}) {
     const data = {
     //labels: ['Mon','Tue','Wed','Thurs','Fri'],
     labels: cryptosList,
