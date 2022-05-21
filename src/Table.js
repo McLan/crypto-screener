@@ -3,7 +3,6 @@ import { useTable, useFilters, useSortBy } from "react-table";
 
 export default function Table({ columns, data }) {
   const [filterInput, setFilterInput] = useState("");
-  // Use the state and functions returned from useTable to build your UI
   const {getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, setFilter} = useTable( { columns, data }, useFilters, useSortBy);
 
   const handleFilterChange = e => {
@@ -17,7 +16,7 @@ export default function Table({ columns, data }) {
       <input
         value={filterInput}
         onChange={handleFilterChange}
-        placeholder={"Search name"}
+        placeholder={"Search Crypto"}
       />
       <table {...getTableProps()}>
         <thead>
@@ -47,8 +46,7 @@ export default function Table({ columns, data }) {
               <tr {...row.getRowProps()}>
                 {row.cells.map(cell => {
                   return (
-                    <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
-                  );
+                    <td {...cell.getCellProps()}>{cell.render("Cell")}</td>);
                 })}
               </tr>
             );

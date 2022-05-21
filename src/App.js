@@ -65,11 +65,10 @@ function App() {
       }
       setData(myTab);
   }, []);
-  console.log(myCryptosList2);
-  console.log(myValues2);
 
   return (
     <div className="App">
+      
       <Table columns={columns} data={data} />
       <DoughnutChart cryptosList={myCryptosList} values={myValues} /> 
     </div>
